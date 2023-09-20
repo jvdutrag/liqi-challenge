@@ -4,7 +4,7 @@ Desenvolvida API Rest com Express em TypeScript para gerar pares de chaves com o
 
 O desafio foi resolvido em duas etapas: a primeira foi a criação da API e dos testes unitários e a segunda foi a construção da arquitetura serverless na Amazon Web Services (AWS).
 
-Os testes unitários foram feitos com a biblioteca Jest e os testes de integração com Supertest.
+Os testes unitários foram feitos com a biblioteca Jest.
 
 ## Executando a aplicação
 É extremamente recomendado rodar a aplicação de forma conteinerizada pois o Docker foi pré-configurado nesse projeto através do arquivo Dockerfile. Basta executar os seguintes comandos na pasta raiz do projeto:
@@ -18,9 +18,7 @@ Os testes unitários foram feitos com a biblioteca Jest e os testes de integraç
 ```
 
 ## Testes
-Os testes estão dentro da pasta ``test`` e foram criados utilizando a biblioteca chamada ``jest``.
-
-Para executar todos os testes de uma única vez basta digitar na linha de comando:
+Os testes estão junto com o código fonte. Em um projeto maior eu preferia criar uma pasta separada para os testes, mas como o projeto é pequeno, achei melhor deixar tudo junto.
 
 ```bash
   npm run test
