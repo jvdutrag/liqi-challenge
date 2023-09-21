@@ -1,4 +1,4 @@
-import * as crypto from 'crypto'
+import * as ethUtil from 'ethereumjs-util'
 
 export class AccountService {
     public getByPublicKey(publicKey: string): string {
@@ -6,10 +6,7 @@ export class AccountService {
             throw new Error('Public key is required')
         }
 
-        const publicKeyBuffer = Buffer.from(publicKey, 'hex')
-        const hash = crypto.createHash('sha3-256')
-        hash.update(publicKeyBuffer.subarray(1))
-        const addressBuffer = hash.digest().subarray(-20)
-        return `0x${addressBuffer.toString('hex')}`
+        const address = ethUtil.publicToAddress(Buffer.from(publicKey, 'hex')).toString('hex')
+        return `0x${address}`
     }
 }

@@ -1,0 +1,24 @@
+service: liqi-challenge
+	
+useDotenv: true
+
+package:
+  individually: true
+
+plugins:
+  - serverless-plugin-typescript
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-1
+  environment:
+    CHAINSTACK_NODE_URL: ${env:CHAINSTACK_NODE_URL}
+
+functions:
+  newTransaction:
+    handler: src/functions/new-transaction.handler
+    events:
+      - sqs:
+          arn: ${env:AWS_QUEUE_ARN}
+          batchSize: 1

@@ -1,19 +1,13 @@
 import * as crypto from 'crypto'
+import * as ethUtil from 'ethereumjs-util'
 
 export class KeyService {
     public generateKeyPair(): [string, string] {
-        const keyPair = crypto.generateKeyPairSync('ec', {
-            namedCurve: 'secp256k1',
-            publicKeyEncoding: {
-                type: 'spki',
-                format: 'pem',
-            },
-            privateKeyEncoding: {
-                type: 'pkcs8',
-                format: 'pem',
-            },
-        })
+        const privateKeyBytes = crypto.randomBytes(32)
+        const privateKey = privateKeyBytes.toString('hex')
 
-        return [keyPair.privateKey, keyPair.publicKey]
+        const publicKey = ethUtil.privateToPublic(privateKeyBytes).toString('hex')
+
+        return [privateKey, publicKey]
     }
 }

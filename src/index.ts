@@ -13,11 +13,11 @@ app.get('/', (_, res: Response) => {
 })
 
 app.get('/key/pair', (_, res: Response) => {
-    const [publicKey, privateKey] = new KeyService().generateKeyPair()
+    const [privateKey, publicKey] = new KeyService().generateKeyPair()
 
     return res.send({
-        publicKey,
-        privateKey
+        privateKey,
+        publicKey
     })
 })
 
