@@ -13,7 +13,7 @@ provider:
   runtime: nodejs16.x
   region: us-east-1
   environment:
-    CHAINSTACK_NODE_URL: ${env:CHAINSTACK_NODE_URL}
+    NODE_URL: ${env:NODE_URL}
 
 functions:
   newTransaction:

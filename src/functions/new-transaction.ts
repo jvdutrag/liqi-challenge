@@ -4,7 +4,7 @@ import { KeyService, AccountService, TransactionService } from '../services'
 
 const keyService = new KeyService()
 const accountService = new AccountService()
-const transactionService = new TransactionService(process.env.CHAINSTACK_NODE_URL)
+const transactionService = new TransactionService(process.env.NODE_URL)
 
 interface Transaction {
     to: string
