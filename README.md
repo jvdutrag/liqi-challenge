@@ -1,10 +1,10 @@
 
 # Liqi Challenge
-Desenvolvida API Rest com Express em TypeScript para gerar pares de chaves com o algoritmo Elliptic Curve Digital Signature (ECDSA) compatíveis com contas Ethereum e gerar endereço de contas EOA (External Owned Account) com base na chave gerada.
+Desenvolvida a aplicação em duas etapas.
 
-O desafio foi resolvido em duas etapas: a primeira foi a criação da API e dos testes unitários e a segunda foi a construção da arquitetura serverless na Amazon Web Services (AWS).
+A primeira etapa foi a criação de uma API para gerar pares de chaves com o algoritmo Elliptic Curve Digital Signature (ECDSA) compatíveis com contas Ethereum e gerar endereço de contas EOA (External Owned Account). Foi também criado os testes unitários utilizando a biblioteca Jest.
 
-Os testes unitários foram feitos com a biblioteca Jest.
+Já a segunda etapa envolveu a criação de uma estrutura na AWS utilizando o Serverless Framework para construir uma função Lambda ativada com uma mensagem na fila SQS para consumir o código da API anteriormente criada e gerar uma transação na rede Ethereum utilizando um node da [Chainstack](https://chainstack.com/).
 
 ## Executando a aplicação
 É extremamente recomendado rodar a aplicação de forma conteinerizada pois o Docker foi pré-configurado nesse projeto através do arquivo Dockerfile. Basta executar os seguintes comandos na pasta raiz do projeto:
